@@ -46,3 +46,30 @@ public class ResourceProduceSystem : IReactiveSystem, ISetPool, IInitializeSyste
         count = ((count + 1) % Config.RESOURCE_PRODUCTION_FREQUENCY);
     }
 }
+
+public class GeneratorProduceSystem : IReactiveSystem, ISetPool
+{
+    Pool _pool;
+    Group _generators;
+    int count = 0;
+
+    public TriggerOnEvent trigger { get { return CoreMatcher.Tick.OnEntityAdded(); } }
+
+    public void SetPool(Pool pool) {
+        _pool = pool;
+        _generators = Pools.core.GetGroup(CoreMatcher.ResourceGenerator);
+    }
+    
+    public void Execute(List<Entity> entities)
+    {
+        foreach(var e in _generators.GetEntities())
+        {
+            if (e.resourceGenerator.count == 0)
+            {
+                var newAmount = Math.Min(Config.RESOURCE_CAPACITY, _pool.resource.amount + e.resourceGenerator.step);
+                _pool.ReplaceResource(newAmount);
+            }
+            e.resourceGenerator.count = ((e.resourceGenerator.count + 1) % e.resourceGenerator.frequency);
+        }
+    }
+}

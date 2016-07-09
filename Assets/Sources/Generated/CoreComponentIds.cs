@@ -8,26 +8,29 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
     public const int ConsumeResource = 0;
-    public const int LogicSystems = 1;
+    public const int CreateGeneratorInput = 1;
     public const int Pause = 2;
     public const int Resource = 3;
-    public const int Tick = 4;
+    public const int ResourceGenerator = 4;
+    public const int Tick = 5;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
         "ConsumeResource",
-        "LogicSystems",
+        "CreateGeneratorInput",
         "Pause",
         "Resource",
+        "ResourceGenerator",
         "Tick"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(ConsumeResourceComponent),
-        typeof(LogicSystemsComponent),
+        typeof(CreateGeneratorInputComponent),
         typeof(PauseComponent),
         typeof(ResourceComponent),
+        typeof(ResourceGeneratorComponent),
         typeof(TickComponent)
     };
 }

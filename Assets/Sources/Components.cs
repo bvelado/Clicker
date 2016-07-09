@@ -8,6 +8,16 @@ public class TickComponent : IComponent
     public long currentTick;
 }
 
+[Core]
+public class ResourceGeneratorComponent : IComponent
+{
+    // step amount produced
+    public float step;
+    // every frequency ticks
+    public int frequency;
+    // current count
+    public int count;
+}
 
 [Core, SingleEntity]
 public class ResourceComponent : IComponent
@@ -24,10 +34,13 @@ public class ConsumeResourceComponent : IComponent
     public int amount;
 }
 
-[Core, SingleEntity]
-public class LogicSystemsComponent : IComponent
+[Core]
+public class CreateGeneratorInputComponent : IComponent
 {
-    public Systems systems;
+    public int cost;
+    public float step;
+    public int frequency;
+    public int count;
 }
 
 [UI]
@@ -57,7 +70,7 @@ public class PauseListenerComponent : IComponent
 [UI]
 public interface IResourceListener
 {
-    void ElixirAmountChanged();
+    void ResourceAmountChanged();
 }
 
 [UI]
