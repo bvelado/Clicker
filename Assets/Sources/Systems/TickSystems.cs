@@ -70,6 +70,8 @@ public class GeneratorProduceSystem : IReactiveSystem, ISetPool
                 _pool.ReplaceResource(newAmount);
             }
             e.resourceGenerator.count = ((e.resourceGenerator.count + 1) % e.resourceGenerator.frequency);
+            if (e.hasGeneratorCountListener)
+                e.generatorCountListener.listener.GeneratorCountChanged(e.resourceGenerator.count / e.resourceGenerator.frequency);
         }
     }
 }

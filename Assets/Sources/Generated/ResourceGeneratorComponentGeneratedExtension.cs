@@ -14,16 +14,18 @@ namespace Entitas {
 
         public bool hasResourceGenerator { get { return HasComponent(CoreComponentIds.ResourceGenerator); } }
 
-        public Entity AddResourceGenerator(float newStep, int newFrequency, int newCount) {
+        public Entity AddResourceGenerator(GeneratorData newData, float newStep, int newFrequency, int newCount) {
             var component = CreateComponent<ResourceGeneratorComponent>(CoreComponentIds.ResourceGenerator);
+            component.data = newData;
             component.step = newStep;
             component.frequency = newFrequency;
             component.count = newCount;
             return AddComponent(CoreComponentIds.ResourceGenerator, component);
         }
 
-        public Entity ReplaceResourceGenerator(float newStep, int newFrequency, int newCount) {
+        public Entity ReplaceResourceGenerator(GeneratorData newData, float newStep, int newFrequency, int newCount) {
             var component = CreateComponent<ResourceGeneratorComponent>(CoreComponentIds.ResourceGenerator);
+            component.data = newData;
             component.step = newStep;
             component.frequency = newFrequency;
             component.count = newCount;

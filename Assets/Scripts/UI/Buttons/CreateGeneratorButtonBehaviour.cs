@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class CreateGeneratorButtonBehaviour : MonoBehaviour, IResourceListener
 {
     public Image progressBox; 
-    public Blueprints blueprints;
+    public GeneratorData generatorData;
     public float baseCost;
 
     void Start()
     {
-        Pools.uI.CreateEntity().AddResourceListener(this);
+        Pools.uI.CreateEntity()
+            .AddResourceListener(this);
     }
 
     public void ButtonPressed()
     {
-        Pools.core.CreateEntity().ApplyBlueprint(blueprints.BaseGenerator);
+        Pools.core.CreateEntity()
+            .AddCreateGeneratorInput(generatorData);
     }
 
     public void ResourceAmountChanged()

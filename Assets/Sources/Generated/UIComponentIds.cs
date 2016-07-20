@@ -7,16 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class UIComponentIds {
-    public const int IPauseListener = 0;
-    public const int IResourceListener = 1;
-    public const int ITickListener = 2;
-    public const int PauseListener = 3;
-    public const int ResourceListener = 4;
-    public const int TickListener = 5;
+    public const int Destroy = 0;
+    public const int GeneratorCountListener = 1;
+    public const int GeneratorNumberListener = 2;
+    public const int IGeneratorCountListener = 3;
+    public const int IGeneratorNumberListener = 4;
+    public const int IPauseListener = 5;
+    public const int IResourceListener = 6;
+    public const int ITickListener = 7;
+    public const int PauseListener = 8;
+    public const int ResourceListener = 9;
+    public const int TickListener = 10;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
+        "Destroy",
+        "GeneratorCountListener",
+        "GeneratorNumberListener",
+        "IGeneratorCountListener",
+        "IGeneratorNumberListener",
         "IPauseListener",
         "IResourceListener",
         "ITickListener",
@@ -26,6 +36,11 @@ public static class UIComponentIds {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(DestroyComponent),
+        typeof(GeneratorCountListenerComponent),
+        typeof(GeneratorNumberListenerComponent),
+        typeof(IGeneratorCountListenerComponent),
+        typeof(IGeneratorNumberListenerComponent),
         typeof(IPauseListenerComponent),
         typeof(IResourceListenerComponent),
         typeof(ITickListenerComponent),

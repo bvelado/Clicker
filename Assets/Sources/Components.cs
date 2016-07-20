@@ -11,6 +11,9 @@ public class TickComponent : IComponent
 [Core]
 public class ResourceGeneratorComponent : IComponent
 {
+    // base data
+    public GeneratorData data;
+
     // step amount produced
     public float step;
     // every frequency ticks
@@ -37,10 +40,7 @@ public class ConsumeResourceComponent : IComponent
 [Core]
 public class CreateGeneratorInputComponent : IComponent
 {
-    public int cost;
-    public float step;
-    public int frequency;
-    public int count;
+    public GeneratorData data;
 }
 
 [UI]
@@ -77,4 +77,47 @@ public interface IResourceListener
 public class ResourceListenerComponent : IComponent
 {
     public IResourceListener listener;
+}
+
+[UI]
+public interface IGeneratorNumberListener
+{
+    void GeneratorNumberChanged();
+}
+
+[UI]
+public class GeneratorNumberListenerComponent : IComponent
+{
+    public IGeneratorNumberListener listener;
+}
+
+[UI]
+public interface IGeneratorCountListener
+{
+    void GeneratorCountChanged(float normalizedCount);
+}
+
+[UI]
+public class GeneratorCountListenerComponent : IComponent
+{
+    public IGeneratorCountListener listener;
+}
+
+[Core]
+public class ViewComponent : IComponent
+{
+    public IViewController view;
+}
+
+[Core]
+public class ViewResourceComponent : IComponent
+{
+    public string path;
+}
+
+[Core, UI]
+[CustomPrefix("flag")]
+public class DestroyComponent : IComponent
+{
+
 }

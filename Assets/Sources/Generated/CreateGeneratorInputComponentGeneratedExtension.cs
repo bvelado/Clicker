@@ -14,21 +14,15 @@ namespace Entitas {
 
         public bool hasCreateGeneratorInput { get { return HasComponent(CoreComponentIds.CreateGeneratorInput); } }
 
-        public Entity AddCreateGeneratorInput(int newCost, float newStep, int newFrequency, int newCount) {
+        public Entity AddCreateGeneratorInput(GeneratorData newData) {
             var component = CreateComponent<CreateGeneratorInputComponent>(CoreComponentIds.CreateGeneratorInput);
-            component.cost = newCost;
-            component.step = newStep;
-            component.frequency = newFrequency;
-            component.count = newCount;
+            component.data = newData;
             return AddComponent(CoreComponentIds.CreateGeneratorInput, component);
         }
 
-        public Entity ReplaceCreateGeneratorInput(int newCost, float newStep, int newFrequency, int newCount) {
+        public Entity ReplaceCreateGeneratorInput(GeneratorData newData) {
             var component = CreateComponent<CreateGeneratorInputComponent>(CoreComponentIds.CreateGeneratorInput);
-            component.cost = newCost;
-            component.step = newStep;
-            component.frequency = newFrequency;
-            component.count = newCount;
+            component.data = newData;
             ReplaceComponent(CoreComponentIds.CreateGeneratorInput, component);
             return this;
         }

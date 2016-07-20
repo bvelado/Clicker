@@ -7,30 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public static class CoreComponentIds {
-    public const int ConsumeResource = 0;
-    public const int CreateGeneratorInput = 1;
-    public const int Pause = 2;
-    public const int Resource = 3;
-    public const int ResourceGenerator = 4;
-    public const int Tick = 5;
+    public const int Destroy = 0;
+    public const int ConsumeResource = 1;
+    public const int CreateGeneratorInput = 2;
+    public const int Pause = 3;
+    public const int Resource = 4;
+    public const int ResourceGenerator = 5;
+    public const int Tick = 6;
+    public const int View = 7;
+    public const int ViewResource = 8;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
+        "Destroy",
         "ConsumeResource",
         "CreateGeneratorInput",
         "Pause",
         "Resource",
         "ResourceGenerator",
-        "Tick"
+        "Tick",
+        "View",
+        "ViewResource"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(DestroyComponent),
         typeof(ConsumeResourceComponent),
         typeof(CreateGeneratorInputComponent),
         typeof(PauseComponent),
         typeof(ResourceComponent),
         typeof(ResourceGeneratorComponent),
-        typeof(TickComponent)
+        typeof(TickComponent),
+        typeof(ViewComponent),
+        typeof(ViewResourceComponent)
     };
 }

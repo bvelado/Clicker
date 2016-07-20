@@ -15,7 +15,6 @@ public class GameController : MonoBehaviour
         _systems = CreateSystems(Pools.core, Pools.uI);
 
         Pools.core.ReplaceResource(0);
-        Pools.core.CreateEntity().AddResourceGenerator(Config.BASE_GENERATOR_PRODUCTION_STEP, Config.BASE_GENERATOR_PRODUCTION_FREQUENCY, 0);
 
         _systems.Initialize();
     }
@@ -28,6 +27,7 @@ public class GameController : MonoBehaviour
             .Add(core.CreateSystem<NotifyTickListenersSystem>())
             .Add(core.CreateSystem<NotifyPauseListenersSystem>())
             .Add(core.CreateSystem<NotifyResourceListenersSystem>())
+            .Add(core.CreateSystem<NotifyGeneratorNumberChangedSystem>())
 
             //Tick
             .Add(core.CreateSystem<TickUpdateSystem>())
@@ -39,8 +39,15 @@ public class GameController : MonoBehaviour
             .Add(core.CreateSystem<ResourceConsumeSystem>())
             .Add(core.CreateSystem<CreateGeneratorSystem>())
 
+            // View
+            .Add(core.CreateSystem<CreateGeneratorView>())
+
             // Cleanup
-            .Add(core.CreateSystem<ResourceConsumeCleanupSystem>());
+            .Add(core.CreateSystem<ResourceConsumeCleanupSystem>())
+            .Add(core.CreateSystem<CreateGeneratorCleanupSystem>())
+
+            .Add(core.CreateSystem<DestroySystem>())
+            .Add(ui.CreateSystem<DestroySystem>());
     }
 
     void Update()

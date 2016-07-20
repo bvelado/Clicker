@@ -66,3 +66,25 @@ public class NotifyResourceListenersSystem : IReactiveSystem, ISetPool
         listeners = Pools.uI.GetGroup(UIMatcher.ResourceListener);
     }
 }
+
+public class NotifyGeneratorNumberChangedSystem : IReactiveSystem, ISetPool
+{
+    Pool _pool;
+    Group listeners;
+
+    public void Execute(List<Entity> entities)
+    {
+        foreach (var entity in listeners.GetEntities())
+        {
+            entity.generatorNumberListener.listener.GeneratorNumberChanged();
+        }
+    }
+
+    public TriggerOnEvent trigger { get { return CoreMatcher.Resource.OnEntityAddedOrRemoved(); } }
+
+    public void SetPool(Pool pool)
+    {
+        _pool = pool;
+        listeners = Pools.uI.GetGroup(UIMatcher.GeneratorNumberListener);
+    }
+}
