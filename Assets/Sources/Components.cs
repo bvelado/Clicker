@@ -28,6 +28,16 @@ public class ResourceComponent : IComponent
     public float amount;
 }
 
+/// <summary>
+/// Used to display resource generator with the same type
+/// </summary>
+[UI]
+public class ResourceGeneratorContainerView : IComponent
+{
+    public ResourceGeneratorFamily family;
+    public ViewController container;
+}
+
 [Core, SingleEntity]
 public class PauseComponent : IComponent { }
 
@@ -106,7 +116,7 @@ public class GeneratorCountListenerComponent : IComponent
 [Core]
 public class ViewComponent : IComponent
 {
-    public IViewController view;
+    public ViewController view;
 }
 
 [Core]

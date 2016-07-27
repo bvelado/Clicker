@@ -65,7 +65,7 @@ public class CreateGeneratorSystem : IReactiveSystem, ISetPool, IEnsureComponent
                 .AddResourceGenerator(entity.createGeneratorInput.data, entity.createGeneratorInput.data.step, entity.createGeneratorInput.data.frequency, 0);
 
             if (entity.createGeneratorInput.data.model != null)
-                generator.AddViewResource("Prefabs/Generator");
+                generator.AddViewResource("Prefabs/GeneratorViewElement");
 
         }
     }

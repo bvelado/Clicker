@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
             .Add(core.CreateSystem<CreateGeneratorSystem>())
 
             // View
+            .Add(core.CreateSystem<CreateGeneratorLineView>())
             .Add(core.CreateSystem<CreateGeneratorView>())
 
             // Cleanup

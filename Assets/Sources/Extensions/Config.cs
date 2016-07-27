@@ -7,6 +7,13 @@ public enum ResourceGeneratorTemplate
     Count
 }
 
+public enum ResourceGeneratorFamily
+{
+    Family1,
+    Family2,
+    Count
+}
+
 public static class Config {
 
     // This should be inside of a config file

@@ -16,10 +16,11 @@ public static class UIComponentIds {
     public const int IResourceListener = 6;
     public const int ITickListener = 7;
     public const int PauseListener = 8;
-    public const int ResourceListener = 9;
-    public const int TickListener = 10;
+    public const int ResourceGeneratorContainerView = 9;
+    public const int ResourceListener = 10;
+    public const int TickListener = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "Destroy",
@@ -31,6 +32,7 @@ public static class UIComponentIds {
         "IResourceListener",
         "ITickListener",
         "PauseListener",
+        "ResourceGeneratorContainerView",
         "ResourceListener",
         "TickListener"
     };
@@ -45,6 +47,7 @@ public static class UIComponentIds {
         typeof(IResourceListenerComponent),
         typeof(ITickListenerComponent),
         typeof(PauseListenerComponent),
+        typeof(ResourceGeneratorContainerView),
         typeof(ResourceListenerComponent),
         typeof(TickListenerComponent)
     };

@@ -8,4 +8,5 @@ public class GeneratorData : ScriptableObject {
     public int frequency;
     public Sprite model;
     public string label;
+    public ResourceGeneratorFamily family;
 }
